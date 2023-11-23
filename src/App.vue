@@ -17,6 +17,7 @@ import Presupuesto from "./components/Presupuesto.vue";
 <style>
 :root {
   --azul: #3b82f6;
+  --azul-escuro: #1048a4;
   --blanco: #fff;
   --gris-claro: #f5f5f5;
   --gris: #94a3b8;
