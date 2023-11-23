@@ -1,7 +1,17 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+
+const presupuesto = ref(0);
+
+const definirPresupuesto = () => {
+  if (presupuesto.value <= 0) {
+    console.log("Presupuesto no válido");
+  }
+};
+</script>
 
 <template>
-  <form class="presupuesto">
+  <form class="presupuesto" @submit.prevent="definirPresupuesto">
     <div class="campo">
       <label for="nuevo-presupuesto">Definir Presupuesto</label>
 
@@ -10,6 +20,8 @@
         class="nuevo-presupuesto"
         placeholder="Añade tu presupuesto"
         type="number"
+        min="0"
+        v-model.number="presupuesto"
       />
     </div>
 
