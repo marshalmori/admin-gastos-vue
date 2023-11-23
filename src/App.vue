@@ -23,6 +23,7 @@ import Presupuesto from "./components/Presupuesto.vue";
   --gris: #94a3b8;
   --gris-oscuro: #64748b;
   --negro: #000;
+  --alerta: #b91c1c;
 }
 
 html {
