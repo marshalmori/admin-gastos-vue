@@ -7,6 +7,18 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+  nombre: {
+    type: String,
+    required: true,
+  },
+  cantidad: {
+    type: [String, Number],
+    required: true,
+  },
+  categoria: {
+    type: String,
+    required: true,
+  },
 });
 </script>
 
@@ -28,6 +40,7 @@ const props = defineProps({
             type="text"
             id="nombre"
             placeholder="Anãde el Nombre del Gasto"
+            :value="nombre"
           />
         </div>
 
@@ -37,12 +50,13 @@ const props = defineProps({
             type="number"
             id="cantidad"
             placeholder="Anãde el cantidad del Gasto, ej. 300"
+            :value="cantidad"
           />
         </div>
 
         <div class="campo">
           <label for="cantidad">Cantidad:</label>
-          <select>
+          <select id="categoria" :value="categoria">
             <option value="">-- Seleccione --</option>
             <option value="ahorro">Ahorro</option>
             <option value="comida">Comida</option>
