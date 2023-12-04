@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import Alerta from "./Alerta.vue";
 import cerrarModal from "../assets/img/cerrar.svg";
 
@@ -87,6 +87,10 @@ const agregarGasto = () => {
 
   emit("guardar-gasto");
 };
+
+const isEditing = computed(() => {
+  return props.id;
+});
 </script>
 
 <template>
@@ -100,7 +104,7 @@ const agregarGasto = () => {
       :class="[modal.animar ? 'animar' : 'cerrar']"
     >
       <form class="nuevo-gasto" @submit.prevent="agregarGasto">
-        <legend>Añadir Gastos</legend>
+        <legend>{{ isEditing ? "Guardar Cambios" : "Añadir Gasto" }}</legend>
 
         <Alerta v-if="error">{{ error }}</Alerta>
         <div class="campo">
@@ -143,7 +147,10 @@ const agregarGasto = () => {
           </select>
         </div>
 
-        <input type="submit" value="Añadir Gasto" />
+        <input
+          type="submit"
+          :value="[isEditing ? 'Guardar Cambios' : 'Añadir Gasto']"
+        />
       </form>
     </div>
   </div>
