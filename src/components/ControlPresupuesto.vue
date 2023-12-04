@@ -17,7 +17,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["definir-disponible"]);
+const emit = defineEmits(["definir-disponible", "reset-app"]);
 </script>
 
 <template>
@@ -26,7 +26,9 @@ const emit = defineEmits(["definir-disponible"]);
       <img :src="imagen" />
     </div>
     <div class="contenedor-presupuesto">
-      <button class="reset-app">Resetear App</button>
+      <button class="reset-app" @click="$emit('reset-app')">
+        Resetear App
+      </button>
       <p><span> Presupuesto: </span> {{ formatearCantidad(presupuesto) }}</p>
       <p><span> Disponible: </span> {{ formatearCantidad(disponible) }}</p>
       <p><span> Gastado: </span>{{ formatearCantidad(gastado) }}</p>
