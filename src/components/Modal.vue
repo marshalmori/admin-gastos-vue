@@ -152,6 +152,10 @@ const isEditing = computed(() => {
           :value="[isEditing ? 'Guardar Cambios' : 'Añadir Gasto']"
         />
       </form>
+
+      <button type="button" class="btn-eliminar" v-if="isEditing">
+        Eliminar Gasto
+      </button>
     </div>
   </div>
 </template>
@@ -225,6 +229,18 @@ const isEditing = computed(() => {
   background-color: var(--azul);
   color: var(--blanco);
   font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-eliminar {
+  border: none;
+  padding: 1rem;
+  width: 100%;
+  background-color: #ef4444;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--blanco);
+  margin-top: 10rem;
   cursor: pointer;
 }
 </style>
